@@ -40,8 +40,24 @@ class RunBot():
 class ManageApps():
     def __init__(self, bot):
         self.bot = bot
-        self.apps = ['Thread','BlogGen',]
-    
+        self.apps = self._discover_apps()
+
+    def _discover_apps(self):
+        """Dynamically discover apps in the apps directory"""
+        apps_dir = os.path.dirname(__file__)
+        apps = []
+
+        for item in os.listdir(apps_dir):
+            item_path = os.path.join(apps_dir, item)
+            # Check if it's a directory and has main.py
+            if os.path.isdir(item_path) and item not in ['bot', '__pycache__']:
+                main_file = os.path.join(item_path, 'main.py')
+                if os.path.exists(main_file):
+                    apps.append(item)
+                    logger.info(f"Discovered app: {item}")
+
+        return apps
+
     def run(self):
         loaded = self.load_apps(self.apps)
         self.append_apps(loaded)

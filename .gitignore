@@ -1,9 +1,7 @@
 ### Ignore Seperated Apps ###
-/apps/
-# Include apps/bot, setting files
-!/apps/bot/**/*
-!/apps/manage.py
-!/apps/config.py
+# Only ignore specific patterns, not entire apps directory
+__pycache__/
+*.pyc
 
 ### Manually Added ###
 Dockerfile

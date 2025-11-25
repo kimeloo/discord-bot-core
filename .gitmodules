@@ -1,0 +1,6 @@
+[submodule "apps/idea-thread"]
+	path = apps/idea-thread
+	url = https://github.com/kimeloo/discord-bot-app-idea-thread.git
+[submodule "apps/assistant"]
+	path = apps/assistant
+	url = https://github.com/kimeloo/discord-bot-app-assistant.git
